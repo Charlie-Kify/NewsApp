@@ -1,1 +1,28 @@
-<p>sign-in works!</p>
+<div class="tex-center contenedor-signin">
+      <!-- Añadiendo en atributo de la clase FormGroup al formulario (añadir Formularis rectivos de angular
+    en el archivo ts del módulo, en este caso auth) -->
+    <div class="form-signin container text-center" [formGroup]="signinForm">
+        <img class="rounded mx-auto d-block" 
+        src="../../../assets/images/user2.png" 
+        alt="" width="80" 
+        height="80">
+        <h1 class="display-">Registrarse</h1>
+
+        <!-- Añadiendo atributos formControlName a los inputs, que correpsonden a los valores creados en el ts -->
+        <label for="inputName" class="sr-only">Nombre</label>
+        <input type="email" id="inputName" class="form-control" placeholder="Nombre" formControlName="name">
+
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email">
+
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required formControlName="password">
+
+        <label for="inputConfirmPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirmar contraseña" required formControlName="confirmPassword">
+        
+        <button class="btn btn-lg btn-outline-dark btn-block">Registrarse</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Karla Flores 2021</p>
+
+    </div>
+</div>
