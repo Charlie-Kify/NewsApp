@@ -1,0 +1,27 @@
+img {
+  max-width: 90%;
+  height: auto;
+}
+
+.card-image-container {
+  max-height: 180px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.card-text {
+  max-height: 120px;
+  min-height: 120px;
+  overflow: hidden;
+}
+
+button {
+  margin: 2px
+}
+.nav-item, .nav-link {
+  cursor: pointer;
+}

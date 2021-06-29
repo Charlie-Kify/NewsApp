@@ -1,53 +1,44 @@
-<div class=" contenedor-login text-center" >
+<div class="contenedor-login text-center">
   <!-- Añadiendo en atributo de la clase FormGroup al formulario (añadir Formularis rectivos de angular
     en el archivo ts del módulo, en este caso auth) -->
   <div class="form-signin container" [formGroup]="loginForm">
-    <img
-      class="rounded mx-auto d-block"
-      src="../../../assets/images/user.png"
-      width="80"
-      height="80"
-      alt="user"
-    />
+    <img class="rounded mx-auto d-block" src="../../../assets/images/user.png" width="80" height="80" alt="user" />
     <h1 class="display-4">Bienvenido Gamer</h1>
     <!-- Añadiendo el atributo formControlName con los valores creados en el ts -->
+
+    <p style="color: rgb(230, 110, 110)" *ngIf="loginForm.get('email')!.touched && loginForm.get('email')!.invalid">
+      Email Requerido
+    </p>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input
-      type="email"
-      id="inputEmail"
-      class="form-control"
-      placeholder="Email"
-      required
-      autofocus
-      formControlName="email"
-    />
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus
+      formControlName="email" (keypress)="onKeyPress($event)" />
     <label for="inputPassword" class="sr-only">Contraseña</label>
-    <input
-      type="password"
-      id="inputPassword"
-      class="form-control"
-      placeholder="Contraseña"
-      required
-      formControlName="password"
-    />
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required
+      formControlName="password" />
+
+    <p style="color: rgb(230, 110, 110)" *ngIf="
+        loginForm.get('password')!.touched && loginForm.get('password')!.invalid
+      ">
+      Contraseña Requerida
+    </p>
 
     <!-- Añadiendo método de eventos -->
     <div class="formg-roup">
-        <label for="select">Selecciona tu ID</label>
-        <select name="" id="select" class="form-control">
-            <option value="1">101</option>
-            <option value="2">202</option>
-            <option value="3">303</option>
-            <option value="4">404</option>
-            <option value="5">505</option>
-        </select>
+      <label for="select">Selecciona tu ID</label>
+      <select name="" id="select" class="form-control" (change)="onChange($event)">
+        <option value="1">101</option>
+        <option value="2">202</option>
+        <option value="3">303</option>
+        <option value="4">404</option>
+        <option value="5">505</option>
+      </select>
     </div>
     <button class="btn btn-lg btn-info btn-block" (click)="onLogIn()">
-        Iniciar sesión
-      </button>
-      <button class="btn btn-lg btn-dark btn-block">
-        Registrarse
-      </button>
-      <p class="mt-5 mb-3 text-muted">&copy; KarlaFlores 2021</p>
+      Iniciar sesión
+    </button>
+    <button class="btn btn-lg btn-dark btn-block" (click)="onSignIn()">
+      Registrarse
+    </button>
+    <p class="mt-5 mb-3 text-muted">&copy; Karla Flores 2021</p>
   </div>
 </div>

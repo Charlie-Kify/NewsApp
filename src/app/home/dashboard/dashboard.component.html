@@ -1,0 +1,16 @@
+<div class="container pt-5">
+    <h2> Juegos en Pre-venta</h2>
+    
+    <div class="card-container">
+        <app-product-card
+        *ngFor= "let product of preSoldProducts"
+        [product] = "product"
+        (buyEvent) = "onBuyEvent($event)"
+        (notInterestedEvent)="onNoInterestedEvent($event)"
+        >
+
+        </app-product-card>
+
+    </div>
+    
+</div>

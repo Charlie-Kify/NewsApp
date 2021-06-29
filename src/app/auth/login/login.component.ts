@@ -32,22 +32,40 @@ loginForm: FormGroup;
 
   // Añadiendo Métodos del LogIn
 
-  onLogIn(){
-    if(this.loginForm.valid){
-      console.log('Iniciaste Sesión Correctamente');
-      const esUsuarioValido = this.authService.login(
+  onLogIn() {
+    if (this.loginForm.valid) {
+      console.log('inicio de sesión correcto');
+      const isValidUser = this.authService.login(
         this.loginForm.get('email')!.value,
         this.loginForm.get('password')!.value,
       );
-    if(esUsuarioValido){
-      this.router.navigate(['/','module-auth', 'sign-in' ])
+
+      if (isValidUser) {
+        this.router.navigate(['/', 'module-home', 'home', 'dashboard'])
+      } else {
+        console.log('el usuario no existe');
+      }
     } else {
       this.loginForm.markAllAsTouched();
-      console.log('Debe ingresar todos los campos');
-      
-    }
-      
+      console.log('Ingrese todos los campos');
     }
   }
+
+
+  onSignIn() {
+    this.router.navigate(['/', 'module-auth', 'sign-in']);
+  }
+
+  // Añadiendo la funcion del evento del teclado
+  onKeyPress(event: any) {
+    console.log(event);
+
+  }
+
+  onChange(event: any) {
+    console.log(event);
+
+  }
+  
 
 }

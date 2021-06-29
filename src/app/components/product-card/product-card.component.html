@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-image-container">
+      <img class="card-img-top" [src]="product ? product.image : '../../../assets/images/products/demo.png'" alt="Imagen no disponible">
+</div>
+    <div class="card-body">
+      <h5 class="card-title">{{product ? product.title : 'Sin nombre'}}</h5>
+      <p class="card-text">{{product ? product.description :'Sin descripción'}}</p>
+    </div>
+    <div class="card-body">
+        <button href="#" class="btn btn-info" (click)="onBuy()">Comprar</button>
+        <button href="#" class="btn btn-dark ml-3" (click)="onNoInterested()">No me interesa </button>
+    </div>
+  </div>
